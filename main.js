@@ -6,11 +6,11 @@ let ctx = cnv.getContext("2d");
 cnv.width = 800;
 cnv.height = 600;
 
-// Global Variables
+//global
 let myArray = Array(100).fill(300);      
-let driftingArray = [myArray]; 
+let driftingArray = [myArray];
 
-// Main Program Loop
+
 requestAnimationFrame(draw);
 
 function draw() {
@@ -35,7 +35,6 @@ document.addEventListener("keydown", function (event) {
     }
 
     if (event.code === "KeyR") {
-        // Reset both arrays
         myArray = Array(100).fill(300);
         driftingArray = [...myArray];
     }
