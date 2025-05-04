@@ -8,16 +8,14 @@ cnv.height = 600;
 
 // Global Variables
 let myArray = Array(100).fill(300);      
-let driftingArray = [myArray];           
+let driftingArray = [myArray]; 
 
 // Main Program Loop
 requestAnimationFrame(draw);
 
 function draw() {
-    // Logic
-    let barWidth = cnv.width / myArray.length;
+    let barWidth = cnv.width / driftingArray.length;
 
-    // Drawing
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     ctx.fillStyle = "orange";
     ctx.strokeStyle = "grey";
@@ -33,13 +31,12 @@ function draw() {
 // Key Events
 document.addEventListener("keydown", function (event) {
     if (event.code === "Space") {
-        // Apply temporary jitter between -5 and 5
         driftingArray = myArray.map(val => val + (Math.random() * 10 - 5));
     }
 
     if (event.code === "KeyR") {
         // Reset both arrays
-        myArray = new Array(100).fill(300);
+        myArray = Array(100).fill(300);
         driftingArray = [...myArray];
     }
 });
